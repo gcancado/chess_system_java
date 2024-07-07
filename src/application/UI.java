@@ -1,7 +1,11 @@
 package application;
 
 import chess.ChessPiece;
+import chess.ChessPosition;
 import chess.Color;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class UI {
 
@@ -35,7 +39,7 @@ public class UI {
             }
             System.out.println();
         }
-        System.out.println(" a b c d e f g h");
+        System.out.println("  a b c d e f g h");
     }
 
     private static void printPiece(ChessPiece piece) {
@@ -51,6 +55,18 @@ public class UI {
             }
         }
         System.out.print(" ");
+    }
+
+    public static ChessPosition readChessPosition(Scanner sc) {
+        try {
+            String s = sc.nextLine();
+            char column = s.charAt(0);
+            int row = Integer.parseInt(s.substring(1));
+            return new ChessPosition(column, row);
+        }
+        catch (RuntimeException e) {
+            throw new InputMismatchException("Erro lendo Chessposition");
+        }
     }
 
 }
