@@ -41,10 +41,17 @@ public class ChessMatch {
         }
     }
 
+    public void validateTargetPosition(Position source, Position target) {
+        if (!this.board.piece(source).possibleMove(target)) {
+            throw new ChessException("A peca escolhida nao pode se mover para a posicao de destino");
+        }
+    }
+
     public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
         validateSourcePosition(source);
+        validateTargetPosition(source, target);
         Piece capturedPiece = makeMove(source, target);
         return (ChessPiece)capturedPiece;
     }
