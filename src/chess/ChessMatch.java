@@ -194,6 +194,10 @@ public class ChessMatch {
         placeNewPiece('e', 1, new King(board, Color.BRANCO));
         placeNewPiece('e', 8, new King(board, Color.PRETO));
 
+        //Rainhas
+        placeNewPiece('d', 1, new Queen(board, Color.BRANCO));
+        placeNewPiece('d', 8, new Queen(board, Color.PRETO));
+
         //Torres
         placeNewPiece('a', 1, new Rook(board, Color.BRANCO));
         placeNewPiece('h', 1, new Rook(board, Color.BRANCO));
